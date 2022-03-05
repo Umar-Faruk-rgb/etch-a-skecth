@@ -1,0 +1,28 @@
+#container {
+    position: absolute;
+    top: 5%;
+    right: 2.5%;
+}
+#grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1px;
+    padding: 1px;
+    background-color: black;
+    height: 550px;
+    width: 550px;
+}
+
+.row {
+    display: flex;
+    gap: 1px;
+    flex: 1 1 auto;
+}
+
+.box {
+    background-color: white;
+    padding: 1px;
+    flex: 1 1 auto;
+}
