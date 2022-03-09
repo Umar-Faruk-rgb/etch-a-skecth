@@ -4,8 +4,13 @@ const colorInput = document.querySelector('#colorInput');
 const sizeInput = document.querySelector('#sizeInput');
 const clearBtn = document.querySelector('#clearBtn');
 const sizeValue = document.querySelector('#sizeValue');
+const options = document.querySelector('#options');
+const infoBox = document.querySelector('#info-box');
 
-setColor()
+options.addEventListener('click', () => {
+    infoBox.style.display = "flex";
+    document.querySelector('#first').style.display = "block";
+})
 
 //Event Listeners
 sizeInput.addEventListener('change', () => {
