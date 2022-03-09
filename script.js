@@ -1,21 +1,58 @@
 const grid = document.querySelector('#grid');
-let gridSize = 60;
+let boxes = document.querySelectorAll('.box');
+const colorInput = document.querySelector('#colorInput');
+const sizeInput = document.querySelector('#sizeInput');
+const clearBtn = document.querySelector('#clearBtn');
+const sizeValue = document.querySelector('#sizeValue');
 
-for(let i = 1; i <= gridSize; i++) {
-    const rows = document.createElement('div');
-    rows.classList.add('row');
-    grid.appendChild(rows);
+setColor()
 
-    for(j = 1; j <= gridSize; j++) {
-        const columns = document.createElement('div');
-        columns.classList.add('box');
-        rows.appendChild(columns);
+//Event Listeners
+sizeInput.addEventListener('change', () => {
+    changeSizeValue();
+    changeGrid();
+});
+
+clearBtn.addEventListener('click', clearGrid);
+
+// Functions
+function changeGrid() {
+    grid.innerHTML = ''; //clear the grid
+
+    gridSize = sizeInput.value;
+    for(let i = 1; i <= gridSize; i++) {
+        const rows = document.createElement('div');
+        rows.classList.add('row');
+        grid.appendChild(rows);
+    
+        for(j = 1; j <= gridSize; j++) {
+            const columns = document.createElement('div');
+            columns.classList.add('box');
+            columns.addEventListener('mouseover', (e) => {
+                e.target.style.backgroundColor = colorInput.value;
+            });
+            rows.appendChild(columns);
+        }
+    }
+};
+
+function setColor(){
+    color = colorInput.value;
+    boxes.forEach((box) => {
+        box.addEventListener('mouseover', () => {
+            box.style.backgroundColor = colorInput.value;
+        });
+    });
+};
+
+function clearGrid(){
+    boxes = document.querySelectorAll('.box');
+    for(let i=0; i < boxes.length; i++){
+        boxes[i].style.backgroundColor = "white";
     }
 }
 
-const boxes = document.querySelectorAll('.box');
-boxes.forEach((box) => {
-    box.addEventListener('mouseover', () => {
-        box.style.backgroundColor = "yellow";
-    });
-});
+function changeSizeValue(){
+    gridSize = sizeInput.value;
+    sizeValue.textContent = `${gridSize} x ${gridSize}`
+}

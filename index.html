@@ -9,8 +9,33 @@
     <title>Etch-a-sketch</title>
 </head>
 <body>
-    <div id="container">
-        <div id="grid"></div>
+    <div id="title">
+        <h1>Options</h1>
+        <h1>Sketch Board</h1>
     </div>
+    <div id="container">
+        <div id="info-box">
+            <div id="color">
+                <h2>Color</h3>
+                <input id="colorInput" type="color" value="white">
+            </div>
+            <div id="size">
+                <h2>Grid Size</h3>
+                <input id="sizeInput" type="range" min="1" max="60" value="1">
+                <div id="sizeValue">1 x 1</div>
+            </div>
+            <div id="clear">
+                <button id="clearBtn">Clear</button>
+            </div>
+        </div>
+        <div id="pad">
+            <div id="grid">
+                <div class="row">
+                    <div class="box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>All Rights Reserved</footer>
 </body>
 </html>
